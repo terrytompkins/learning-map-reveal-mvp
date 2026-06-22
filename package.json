@@ -1,0 +1,25 @@
+{
+  "name": "learning-map-reveal-mvp",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Client-only MVP connecting a React Flow learning map to Reveal.js topic decks.",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@xyflow/react": "^12.10.2",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^6.0.2",
+    "typescript": "^5.9.3",
+    "vite": "^8.0.13"
+  }
+}

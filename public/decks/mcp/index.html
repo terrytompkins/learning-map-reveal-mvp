@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Model Context Protocol Deck</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@6/dist/reveal.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@6/dist/theme/black.css" />
+    <link rel="stylesheet" href="../shared/deck.css" />
+  </head>
+  <body>
+    <nav class="deck-nav" aria-label="Deck navigation">
+      <a data-map-link href="../../index.html">Map</a>
+      <a data-return-link href="#" hidden>Return</a>
+    </nav>
+
+    <div class="reveal">
+      <div class="slides">
+        <section id="intro">
+          <p class="kicker">Topic deck</p>
+          <h1>Model Context Protocol</h1>
+          <p class="lede">For this MVP, MCP is the example of a topic large enough to branch from the Agents deck into its own dedicated deck.</p>
+          <div class="badge-row">
+            <span>Hosts</span>
+            <span>Clients</span>
+            <span>Servers</span>
+            <span>Tools</span>
+            <span>Resources</span>
+            <span>Prompts</span>
+          </div>
+        </section>
+
+        <section id="why-mcp">
+          <p class="kicker">Problem framing</p>
+          <h2>Why a protocol?</h2>
+          <p class="lede">Without a common protocol, every AI client and every tool provider needs custom integration work. A shared protocol creates a more reusable integration surface.</p>
+          <div class="card-row">
+            <div class="card"><strong>Before</strong><span>Point-to-point integrations and bespoke plugins.</span></div>
+            <div class="card"><strong>After</strong><span>Clients can discover server capabilities consistently.</span></div>
+            <div class="card"><strong>Teaching payoff</strong><span>It gives learners a concrete bridge from agents to enterprise systems.</span></div>
+          </div>
+        </section>
+
+        <section>
+          <section id="resources-tools-prompts">
+            <p class="kicker">Key model</p>
+            <h2>Resources, tools, and prompts</h2>
+            <p class="lede">This is the mental model most learners need first: resources expose context, tools expose actions, and prompts expose reusable interaction patterns.</p>
+            <div class="card-row">
+              <div class="card"><strong>Resources</strong><span>Readable context exposed by a server.</span></div>
+              <div class="card"><strong>Tools</strong><span>Callable operations exposed by a server.</span></div>
+              <div class="card"><strong>Prompts</strong><span>Reusable templates or workflows exposed by a server.</span></div>
+            </div>
+          </section>
+          <section id="resources-tools-prompts-example">
+            <p class="kicker">Vertical dive</p>
+            <h2>Example: support knowledge system</h2>
+            <p class="lede">A support MCP server might expose a product manual as a resource, a ticket lookup as a tool, and a reusable “draft customer reply” prompt.</p>
+          </section>
+        </section>
+
+        <section id="client-server">
+          <p class="kicker">Architecture</p>
+          <h2>Host, client, server</h2>
+          <div class="diagram-list">
+            <div>AI app / host</div>
+            <div class="arrow">→</div>
+            <div>MCP client</div>
+            <div class="arrow">→</div>
+            <div>MCP server</div>
+            <div class="arrow">→</div>
+            <div>System / data</div>
+            <div class="arrow">↩</div>
+          </div>
+          <p class="lede">The deck link pattern is intentionally similar: a host learning experience routes the learner to the right content surface, then provides a return path.</p>
+        </section>
+
+        <section id="mvp-implementation">
+          <p class="kicker">MVP implementation note</p>
+          <h2>How this prototype links decks</h2>
+          <p class="lede">Cross-deck links pass <span class="code-lite">returnTo</span> and <span class="code-lite">returnLabel</span> in the query string. Each deck reads those values and shows a return button when available.</p>
+          <a class="choice" href="../agents/index.html#/mcp-bridge">
+            <strong>Directly open the originating Agents slide</strong>
+            <span>This link is hardcoded; the nav bar return link is dynamic.</span>
+          </a>
+        </section>
+
+        <section id="wrap">
+          <p class="kicker">MVP takeaway</p>
+          <h2>This is enough to test the teaching pattern</h2>
+          <p class="lede">The learner can move from map to topic, from topic to deck, from deck to related deck, and back to the originating slide without a backend.</p>
+        </section>
+      </div>
+    </div>
+
+    <script type="module">
+      import Reveal from 'https://cdn.jsdelivr.net/npm/reveal.js@6/dist/reveal.esm.js';
+      Reveal.initialize({ hash: true, slideNumber: 'c/t', transition: 'slide', controlsTutorial: false });
+    </script>
+    <script src="../shared/deck-nav.js"></script>
+  </body>
+</html>

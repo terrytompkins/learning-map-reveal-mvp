@@ -1,0 +1,107 @@
+{
+  "version": "0.1.0",
+  "title": "Generative AI Learning Map",
+  "description": "A small concept map that links learners into topic-focused Reveal.js decks.",
+  "topics": [
+    {
+      "id": "genai-overview",
+      "title": "Generative AI Overview",
+      "shortTitle": "GenAI Overview",
+      "description": "Start here for the big picture: what generative AI is, why it matters, and how the rest of the topics fit together.",
+      "level": "overview",
+      "deck": "genai",
+      "slide": "intro",
+      "position": { "x": 0, "y": 0 },
+      "tags": ["start", "overview"]
+    },
+    {
+      "id": "llms",
+      "title": "Large Language Models",
+      "shortTitle": "LLMs",
+      "description": "The foundation model layer behind most modern chat, writing, coding, and reasoning experiences.",
+      "level": "major",
+      "deck": "genai",
+      "slide": "llms",
+      "position": { "x": -420, "y": -110 },
+      "tags": ["foundation", "models"]
+    },
+    {
+      "id": "prompting",
+      "title": "Prompting & Instructions",
+      "shortTitle": "Prompting",
+      "description": "How humans shape model behavior with task framing, examples, constraints, and iteration.",
+      "level": "topic",
+      "deck": "genai",
+      "slide": "prompting",
+      "position": { "x": -430, "y": 170 },
+      "tags": ["practice", "interface"]
+    },
+    {
+      "id": "rag",
+      "title": "Retrieval-Augmented Generation",
+      "shortTitle": "RAG",
+      "description": "A pattern for grounding model responses in selected source material rather than relying only on model memory.",
+      "level": "major",
+      "deck": "genai",
+      "slide": "rag",
+      "position": { "x": 20, "y": 270 },
+      "tags": ["grounding", "search"]
+    },
+    {
+      "id": "agents",
+      "title": "AI Agents",
+      "shortTitle": "Agents",
+      "description": "Systems that use models to plan, call tools, inspect results, and continue toward a goal.",
+      "level": "major",
+      "deck": "agents",
+      "slide": "intro",
+      "position": { "x": 420, "y": -110 },
+      "tags": ["workflow", "automation"]
+    },
+    {
+      "id": "tool-calling",
+      "title": "Tool Calling",
+      "shortTitle": "Tools",
+      "description": "The mechanism that lets a model ask software to perform actions or retrieve precise external information.",
+      "level": "topic",
+      "deck": "agents",
+      "slide": "tool-calling",
+      "position": { "x": 820, "y": -105 },
+      "tags": ["agents", "apis"]
+    },
+    {
+      "id": "mcp",
+      "title": "Model Context Protocol",
+      "shortTitle": "MCP",
+      "description": "A standard way to expose tools, resources, and prompts from external systems to AI clients.",
+      "level": "major",
+      "deck": "mcp",
+      "slide": "intro",
+      "position": { "x": 820, "y": 170 },
+      "tags": ["protocol", "integration"]
+    },
+    {
+      "id": "evals",
+      "title": "Evaluation & Governance",
+      "shortTitle": "Evals",
+      "description": "How teams check whether AI systems are useful, safe, reliable, and improving over time.",
+      "level": "topic",
+      "deck": "agents",
+      "slide": "evaluation",
+      "position": { "x": 415, "y": 170 },
+      "tags": ["quality", "risk"]
+    }
+  ],
+  "relationships": [
+    { "id": "overview-llms", "source": "genai-overview", "target": "llms", "label": "starts with", "kind": "contains" },
+    { "id": "overview-prompting", "source": "genai-overview", "target": "prompting", "label": "used through", "kind": "contains" },
+    { "id": "overview-rag", "source": "genai-overview", "target": "rag", "label": "grounded by", "kind": "contains" },
+    { "id": "overview-agents", "source": "genai-overview", "target": "agents", "label": "expanded by", "kind": "contains" },
+    { "id": "llms-prompting", "source": "llms", "target": "prompting", "label": "guided by", "kind": "depends-on" },
+    { "id": "prompting-rag", "source": "prompting", "target": "rag", "label": "adds context", "kind": "related" },
+    { "id": "agents-tools", "source": "agents", "target": "tool-calling", "label": "use", "kind": "deepens" },
+    { "id": "tools-mcp", "source": "tool-calling", "target": "mcp", "label": "standardized by", "kind": "deepens" },
+    { "id": "agents-evals", "source": "agents", "target": "evals", "label": "measured by", "kind": "related" },
+    { "id": "rag-mcp", "source": "rag", "target": "mcp", "label": "can expose", "kind": "related" }
+  ]
+}
